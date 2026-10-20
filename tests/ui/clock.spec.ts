@@ -1,6 +1,9 @@
 import { expect, test } from "@playwright/test";
 import { mockDesktop } from "./desktopFixture";
 
+// Times are shown in the computer's time zone; fixed here so the hours do not depend on it.
+test.use({ timezoneId: "UTC" });
+
 test("times switch between 12- and 24-hour and the choice is remembered", async ({
   page,
 }) => {
@@ -8,8 +11,7 @@ test("times switch between 12- and 24-hour and the choice is remembered", async 
     snapshot.logs = [
       {
         id: 1,
-        // Local time, so the expected hour does not depend on the time zone.
-        timestamp: new Date(2026, 9, 18, 14, 5, 9).toISOString(),
+        timestamp: "2026-10-18T14:05:09Z",
         level: "INFO",
         module: "SYSTEM",
         message: "Clock fixture",
@@ -49,14 +51,14 @@ test("times switch between 12- and 24-hour and the choice is remembered", async 
 
   // English writes 12-hour times on its own.
   await expect(logTime).toHaveText("2:05:09 PM");
-  await expect(lastChecked).toContainText("02:00 PM");
+  await expect(lastChecked).toContainText("12:00 PM");
   await showSchedules();
   await expect(schedules).toContainText("7:30 PM · Evening");
 
   await choose("24-hour (14:30)");
   await expect(logTime).toHaveText("14:05:09");
   await page.getByRole("button", { name: /^Accounts/ }).click();
-  await expect(lastChecked).toContainText("14:00");
+  await expect(lastChecked).toContainText("12:00");
   await expect(lastChecked).not.toContainText("PM");
   await showSchedules();
   await expect(schedules).toContainText("19:30 · Evening");
