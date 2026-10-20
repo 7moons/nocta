@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "description": "Desktop manager for Roblox accounts: sessions, multi-instance launching and client upkeep.",
-  "license": "MIT",
+  "license": "GPL-3.0-only",
   "author": "7moons (https://7moons.dev)",
   "homepage": "https://7moons.dev",
   "repository": {

@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <a href="LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-3f3f46?style=flat-square"></a>
+  <a href="LICENSE"><img alt="License: GPL-3.0" src="https://img.shields.io/badge/license-GPL--3.0-3f3f46?style=flat-square"></a>
   <img alt="Platform: Windows" src="https://img.shields.io/badge/platform-Windows%2010%20%7C%2011-3f3f46?style=flat-square">
   <img alt="Built with Tauri 2" src="https://img.shields.io/badge/Tauri-2-3f3f46?style=flat-square&logo=tauri&logoColor=white">
   <img alt="Rust core" src="https://img.shields.io/badge/core-Rust-3f3f46?style=flat-square&logo=rust&logoColor=white">
@@ -269,4 +269,4 @@ Roblox's terms of service; you are responsible for how you use it.
 
 ## License
 
-[MIT](LICENSE) · Made by [7moons](https://7moons.dev)
+[GPL-3.0](LICENSE) · Made by [7moons](https://7moons.dev)
