@@ -1,0 +1,118 @@
+/* Left navigation with views; the folder panel's styles are in features/folders.css. */
+.sidebar {
+  width: 208px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  padding: 0 7px;
+}
+.workspace-label {
+  height: 55px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 0 10px;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  width: 100%;
+  text-align: left;
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+}
+.nav-item {
+  min-height: 33px;
+  padding: 7px 9px;
+  font-size: 0.91rem;
+  color: var(--text-secondary);
+}
+.nav-item svg {
+  color: var(--text-muted);
+}
+.nav-item:hover {
+  background: var(--surface-hover);
+}
+.nav-item.active {
+  border-color: var(--border-emphasis);
+  background: var(--surface-hover);
+  color: var(--text-strong);
+}
+.nav-count {
+  margin-left: auto;
+  font-size: 0.79rem;
+  color: var(--text-subtle);
+  font-variant-numeric: tabular-nums;
+}
+.sidebar-section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 9px 5px;
+  color: var(--text-subtle);
+  font-size: 0.82rem;
+  font-weight: 550;
+}
+.sidebar-section-heading .button {
+  min-height: 21px;
+  width: 22px;
+}
+.sidebar-hint {
+  padding: 16px 13px;
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: var(--text-subtle);
+}
+.sidebar-bottom {
+  padding-top: 10px;
+}
+
+.sidebar-toggle {
+  margin-left: auto;
+  color: var(--text-subtle);
+}
+
+/* Collapsed: an icon rail. Folders stay as colored icons, names live in tooltips. */
+.sidebar.collapsed {
+  width: 52px;
+  padding: 0 6px;
+}
+.sidebar.collapsed .workspace-label {
+  justify-content: center;
+  padding: 0;
+}
+.sidebar.collapsed .workspace-label > span,
+.sidebar.collapsed .nav-item > span,
+.sidebar.collapsed .sidebar-section-heading > span,
+.sidebar.collapsed .sidebar-hint {
+  display: none !important;
+}
+.sidebar.collapsed .sidebar-toggle {
+  margin: 0;
+}
+.sidebar.collapsed .nav-item {
+  justify-content: center;
+  padding: 7px 0;
+}
+.sidebar.collapsed .sidebar-section-heading {
+  justify-content: center;
+  margin-top: 14px;
+  padding: 10px 0 5px;
+  border-top: 1px solid var(--border);
+}
+@media (max-width: 1150px) {
+  .sidebar:not(.collapsed) {
+    width: 184px;
+  }
+}

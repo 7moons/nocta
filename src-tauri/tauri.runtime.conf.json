@@ -1,0 +1,9 @@
+{
+  "bundle": {
+    "resources": {
+      "../runtime/chrome/": "runtime/chrome/",
+      "../runtime/browser-manifest.json": "runtime/browser-manifest.json",
+      "../runtime/runtime-manifest.json": "runtime/runtime-manifest.json"
+    }
+  }
+}

@@ -1,0 +1,330 @@
+/* The folder panel in the sidebar: rows, group headers, drop markers and inline names. */
+.folder-panel {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+.folder-list {
+  flex: 1;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding-bottom: 6px;
+}
+.folder-row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 29px;
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  color: var(--text-secondary);
+}
+.folder-row:hover {
+  background: var(--surface-hover);
+}
+.folder-row.active {
+  background: var(--surface-selected);
+  border-color: var(--border-strong);
+  color: var(--text-strong);
+}
+.folder-select {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  padding: 0 9px;
+  font-size: 0.85rem;
+  text-align: left;
+  color: inherit;
+}
+.folder-select > svg {
+  flex-shrink: 0;
+  color: var(--text-muted);
+}
+.folder-name {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.folder-select small {
+  margin-left: auto;
+  color: var(--text-subtle);
+  font-size: 0.78rem;
+  font-variant-numeric: tabular-nums;
+}
+.folder-group .folder-row .folder-select {
+  padding-left: 22px;
+}
+/* The ⋯ and + buttons appear on hover, on keyboard focus and while their menu is open. */
+.folder-menu-button {
+  display: none;
+  place-items: center;
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  margin-right: 4px;
+  border-radius: var(--radius);
+  color: var(--text-muted);
+}
+.folder-menu-button:hover {
+  background: var(--surface-raised);
+  color: var(--text-strong);
+}
+.folder-row:hover .folder-menu-button,
+.folder-row:focus-within .folder-menu-button,
+.folder-menu-button[data-state="open"],
+.folder-group-header:hover .folder-menu-button,
+.folder-group-header:focus-within .folder-menu-button {
+  display: grid;
+}
+.folder-row:hover .folder-select small,
+.folder-row:focus-within .folder-select small {
+  display: none;
+}
+.folder-divider {
+  height: 1px;
+  margin: 6px 9px;
+  background: var(--border);
+}
+
+.folder-group {
+  margin-top: 8px;
+}
+.folder-group-header {
+  display: flex;
+  align-items: center;
+  height: 26px;
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+}
+.folder-group-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  padding: 0 9px;
+  font-size: 0.78rem;
+  font-weight: 550;
+  letter-spacing: 0.02em;
+  color: var(--text-muted);
+  text-align: left;
+}
+.folder-group-toggle > span {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.folder-group-toggle small {
+  margin-left: auto;
+  font-weight: 400;
+  color: var(--text-subtle);
+  font-variant-numeric: tabular-nums;
+}
+.folder-group-toggle svg {
+  flex-shrink: 0;
+  transition: transform 0.12s ease;
+}
+.folder-group-toggle[aria-expanded="false"] svg {
+  transform: rotate(-90deg);
+}
+.folder-group-header:hover .folder-group-toggle small,
+.folder-group-header:focus-within .folder-group-toggle small {
+  display: none;
+}
+
+/* Where a dragged folder lands: a line between rows, or the whole row for accounts and groups. */
+.folder-row.drop-before::before,
+.folder-row.drop-after::after {
+  content: "";
+  position: absolute;
+  left: 6px;
+  right: 6px;
+  height: 2px;
+  border-radius: 1px;
+  background: var(--accent);
+  pointer-events: none;
+}
+.folder-row.drop-before::before {
+  top: -2px;
+}
+.folder-row.drop-after::after {
+  bottom: -2px;
+}
+.folder-row.drop-into,
+.folder-group-header.drop-into {
+  border-color: var(--accent);
+  background: var(--surface-hover);
+}
+.folder-row[draggable="true"] {
+  cursor: default;
+}
+
+.folder-row-input {
+  gap: 9px;
+  padding: 0 6px 0 9px;
+  color: var(--text-muted);
+}
+.folder-group .folder-row-input {
+  padding-left: 22px;
+}
+.inline-name {
+  flex: 1;
+  min-width: 0;
+  height: 22px;
+  padding: 0 6px;
+  border: 1px solid var(--accent);
+  border-radius: var(--radius);
+  background: var(--surface-sunken);
+  color: var(--text-strong);
+  font: inherit;
+  font-size: 0.85rem;
+  outline: none;
+}
+
+/* What follows the pointer while accounts are dragged onto a folder. */
+.drag-badge {
+  position: fixed;
+  top: -100px;
+  left: -100px;
+  padding: 4px 9px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  background: var(--surface-overlay);
+  color: var(--text-strong);
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+/* Collapsed sidebar: folders as colored icons, names in tooltips. */
+.sidebar.collapsed .folder-name,
+.sidebar.collapsed .folder-select small,
+.sidebar.collapsed .folder-menu-button,
+.sidebar.collapsed .folder-group-header,
+.sidebar.collapsed .folder-divider,
+.sidebar.collapsed .folder-row-input {
+  display: none !important;
+}
+.sidebar.collapsed .folder-select,
+.sidebar.collapsed .folder-group .folder-row .folder-select {
+  justify-content: center;
+  padding: 0;
+}
+.sidebar.collapsed .folder-group {
+  margin-top: 0;
+}
+.sidebar.collapsed .folder-list {
+  scrollbar-width: none;
+}
+
+/* The folder color dialog. */
+.folder-color {
+  display: grid;
+  gap: 14px;
+}
+.folder-color-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+}
+.folder-color-preview {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+  height: 32px;
+  padding: 0 11px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text-strong);
+  font-size: 0.85rem;
+}
+.folder-color-preview span {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.folder-color-hex input {
+  width: 110px;
+  font-family: var(--font-mono, monospace);
+}
+.color-set {
+  display: grid;
+  gap: 6px;
+}
+.color-set-label {
+  color: var(--text-muted);
+  font-size: 0.78rem;
+}
+.color-set-swatches {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+.color-choice {
+  position: relative;
+  display: grid;
+}
+.color-choice > button:first-child {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+}
+.color-choice > button:first-child {
+  cursor: pointer;
+}
+.color-choice .color-dot {
+  transition:
+    transform 0.1s ease,
+    box-shadow 0.1s ease;
+}
+.color-choice > button:first-child:hover .color-dot,
+.color-choice > button:first-child:focus-visible .color-dot {
+  transform: scale(1.15);
+  box-shadow:
+    0 0 0 2px var(--surface),
+    0 0 0 3.5px var(--text-secondary);
+}
+.color-choice-remove {
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  display: none;
+  place-items: center;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--surface-raised);
+  color: var(--text-strong);
+  box-shadow: 0 0 0 1px var(--border-strong);
+}
+.color-choice:hover .color-choice-remove,
+.color-choice-remove:focus-visible {
+  display: grid;
+}
+.color-add {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  height: 28px;
+  padding: 0 10px;
+  border: 1px dashed var(--border-strong);
+  border-radius: 14px;
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+}
+.color-add:hover:not(:disabled) {
+  color: var(--text-strong);
+  border-color: var(--text-muted);
+}
+.color-add:disabled {
+  opacity: 0.45;
+}

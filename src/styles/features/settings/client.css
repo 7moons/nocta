@@ -1,0 +1,210 @@
+/* Roblox client settings and the app-level install and update notice. */
+/* Roblox client */
+.client-note {
+  padding: 12px 0;
+  font-size: 0.82rem;
+}
+.client-status {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 12px 0 10px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface-sunken);
+}
+.client-status-icon {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  border-radius: var(--radius-md);
+  background: var(--surface-selected);
+  color: var(--text-subtle);
+}
+.client-status-icon.ready {
+  background: var(--accent);
+  color: var(--accent-foreground);
+}
+.client-status > div {
+  flex: 1;
+  min-width: 0;
+}
+.client-status strong {
+  display: block;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-strong);
+}
+.client-status small,
+.client-version small {
+  display: block;
+  margin-top: 3px;
+  color: var(--text-subtle);
+  font-size: 0.76rem;
+}
+.client-status code,
+.client-version code {
+  font-family: var(--font-mono);
+}
+.client-latest {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+.client-latest.current {
+  color: var(--success);
+}
+.client-latest.outdated {
+  color: var(--warning);
+}
+.client-progress {
+  margin-bottom: 10px;
+}
+.client-progress-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 6px;
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+}
+.client-progress-bar,
+.client-banner-bar {
+  display: block;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--border-strong);
+  overflow: hidden;
+}
+.client-progress-bar > span,
+.client-banner-bar > span {
+  display: block;
+  height: 100%;
+  border-radius: 3px;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+.client-actions,
+.client-version-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-bottom: 12px;
+}
+.client-error {
+  margin-bottom: 12px;
+}
+.client-versions {
+  display: flex;
+  flex-direction: column;
+  margin: 12px 0 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+.client-versions .client-note {
+  padding: 12px;
+}
+.client-version {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 10px 9px 12px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+.client-version:last-child {
+  border-bottom: 0;
+}
+.client-version.active {
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
+}
+.client-version > div {
+  flex: 1;
+  min-width: 0;
+}
+.client-version strong {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.86rem;
+  font-weight: 550;
+}
+.client-version .badge {
+  padding: 1px 5px;
+  font-size: 0.68rem;
+}
+.client-specific {
+  display: flex;
+  gap: 6px;
+}
+.client-specific input {
+  width: 220px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+}
+
+/* App-level notice for client installs and updates */
+.client-banner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  padding: 7px 14px;
+  border-bottom: 1px solid var(--border);
+  background: color-mix(in srgb, var(--accent) 10%, var(--surface));
+  color: var(--text);
+  font-size: 0.82rem;
+}
+.client-banner > svg {
+  color: var(--accent);
+}
+.client-banner > span:first-of-type {
+  flex: 1;
+  min-width: 0;
+}
+.client-banner-bar {
+  width: 160px;
+  flex-shrink: 0;
+}
+
+.fast-flags {
+  display: flex;
+  flex-direction: column;
+  padding: 6px 0;
+}
+.fast-flags li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 0;
+  font-size: 0.82rem;
+}
+.fast-flags code {
+  flex: 1;
+  color: var(--text);
+}
+.fast-flag-value {
+  font-family: var(--font-mono);
+  color: var(--accent);
+}
+.fast-flags-empty {
+  color: var(--text-subtle);
+}
+.fast-flag-add {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 6px 0 10px;
+}
+.fast-flag-add select:first-child {
+  flex: 1;
+  min-width: 240px;
+}
+.fast-flag-add input {
+  width: 110px;
+}

@@ -1,0 +1,223 @@
+/* Settings view: category navigation, search, sections and rows. */
+.settings-layout {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+}
+.settings-navigation {
+  width: 172px;
+  padding: 14px 8px;
+  border-right: 1px solid var(--border);
+  background: var(--surface);
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: auto;
+}
+.settings-navigation nav button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  text-align: left;
+  padding: 9px 10px;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  margin-bottom: 3px;
+}
+.settings-navigation nav button.active {
+  border-color: var(--border-emphasis);
+  color: var(--text);
+}
+.settings-navigation nav button:hover {
+  background: var(--surface-hover);
+}
+.settings-navigation svg {
+  color: var(--text-muted);
+}
+.settings-search input {
+  width: 100%;
+  min-width: 0;
+}
+.settings-subnav {
+  display: flex;
+  flex-direction: column;
+  margin: -1px 0 6px 16px;
+  padding-left: 8px;
+  border-left: 1px solid var(--border);
+}
+.settings-navigation .settings-subnav button {
+  padding: 5px 9px;
+  margin-bottom: 1px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+.settings-navigation .settings-subnav button.active {
+  border-color: transparent;
+  background: var(--surface-hover);
+  color: var(--text-strong);
+}
+
+/* Search results: hide sections where neither the title nor any row matched. */
+.settings-content.searching
+  .settings-section[data-match="false"]:not(:has(.setting-row)) {
+  display: none;
+}
+.settings-no-results {
+  height: auto;
+  padding: 40px 0;
+}
+.settings-content {
+  overflow-y: auto;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  flex: 1;
+  min-width: 0;
+}
+
+.settings-section {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  flex-shrink: 0;
+}
+.settings-section > header {
+  padding: 12px 13px;
+  border-bottom: 1px solid var(--border);
+}
+.settings-section > header p {
+  margin-top: 4px;
+  font-size: 0.8rem;
+}
+.collapsible-section > summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px;
+  cursor: pointer;
+  list-style: none;
+  border-bottom: 1px solid var(--border);
+}
+.collapsible-section > summary p {
+  margin-top: 4px;
+}
+.collapsible-section:not([open]) > summary {
+  border-bottom: 0;
+}
+.collapsible-section:not([open]) > summary > svg {
+  transform: rotate(-90deg);
+}
+.settings-body {
+  padding: 0 12px;
+}
+.setting-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  min-height: 58px;
+  padding: 10px 1px;
+  border-bottom: 1px solid var(--border);
+}
+.setting-row:last-child {
+  border-bottom: 0;
+}
+.setting-row p {
+  padding-top: 3px;
+  font-size: 0.8rem;
+}
+.setting-control {
+  flex-shrink: 0;
+  max-width: 45%;
+}
+.setting-control > input {
+  width: 220px;
+  max-width: 100%;
+}
+.setting-control select {
+  min-width: 150px;
+  font-size: 0.84rem;
+}
+.setting-disabled {
+  opacity: 0.55;
+}
+.backup-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 12px 0;
+}
+.backup-actions > .button {
+  min-width: 100px;
+}
+
+@media (max-width: 1150px) {
+  .settings-navigation {
+    width: 145px;
+  }
+}
+.quick-action-setting {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--text-muted);
+}
+.webhook-setting {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+.webhook-setting > input {
+  width: 260px;
+  max-width: 100%;
+}
+.webhook-result {
+  flex-basis: 100%;
+  text-align: right;
+  font-size: 0.76rem;
+  color: var(--text-subtle);
+}
+.client-profiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 12px;
+  padding: 12px 0;
+}
+.client-profile {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+.client-profile legend {
+  padding: 0 4px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--text-strong);
+}
+.client-profile-size {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.client-profiles-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 12px;
+  padding-top: 12px;
+}
+.client-profiles-actions .field-hint {
+  flex: 1 1 320px;
+}

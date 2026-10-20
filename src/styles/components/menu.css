@@ -1,0 +1,82 @@
+/* Dropdown and context menus. */
+.menu {
+  z-index: 60;
+  min-width: 180px;
+  padding: 4px;
+  border: 1px solid var(--border-strong);
+  border-radius: calc(var(--radius) + 2px);
+  background: var(--surface-overlay);
+  box-shadow: 0 10px 30px var(--shadow);
+  font-size: 0.85rem;
+}
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  height: 29px;
+  padding: 0 9px;
+  border-radius: var(--radius);
+  color: var(--text-secondary);
+  cursor: default;
+  outline: none;
+  user-select: none;
+}
+.menu-item > svg {
+  flex-shrink: 0;
+  color: var(--text-muted);
+}
+.menu-item[data-highlighted],
+.menu-item[data-state="open"] {
+  background: var(--surface-hover);
+  color: var(--text-strong);
+}
+.menu-item.danger,
+.menu-item.danger > svg {
+  color: var(--danger);
+}
+.menu-chevron {
+  margin-left: auto;
+}
+.menu-separator {
+  height: 1px;
+  margin: 4px 2px;
+  background: var(--border);
+}
+.menu:has(.menu-swatches) {
+  min-width: 0;
+}
+.menu-swatches {
+  display: grid;
+  grid-template-columns: repeat(4, 28px);
+  gap: 2px;
+  padding: 2px;
+}
+.menu-swatch {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  outline: none;
+  cursor: default;
+}
+.menu-swatch {
+  cursor: pointer;
+}
+.menu-swatch .color-dot {
+  transition:
+    transform 0.1s ease,
+    box-shadow 0.1s ease;
+}
+/* Hovered or reached with the arrow keys: the dot grows and gets a ring. */
+.menu-swatch[data-highlighted] .color-dot {
+  transform: scale(1.18);
+  box-shadow:
+    0 0 0 2px var(--surface-overlay),
+    0 0 0 3.5px var(--text-secondary);
+}
+.menu-label {
+  padding: 6px 8px 2px;
+  color: var(--text-subtle);
+  font-size: 0.75rem;
+}

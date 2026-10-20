@@ -1,0 +1,62 @@
+/* Friends view: one row per friend with presence and a Join button. */
+.friends-view .table-tools {
+  gap: 12px;
+}
+.friend-list {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+}
+.friend-row {
+  display: grid;
+  grid-template-columns: auto minmax(140px, 1fr) minmax(0, 2fr) auto;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+.friend-row:last-child {
+  border-bottom: 0;
+}
+.friend-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+}
+.friend-avatar img {
+  border-radius: 50%;
+}
+.friend-name {
+  min-width: 0;
+}
+.friend-name strong {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--text-strong);
+  font-size: 0.88rem;
+  font-weight: 550;
+}
+.friend-name small {
+  color: var(--text-subtle);
+  font-size: 0.75rem;
+}
+.friend-status {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 0.8rem;
+  color: var(--text-subtle);
+}
+.friend-status.online {
+  color: var(--success);
+}
+.friend-status.inGame {
+  color: var(--accent);
+}
+.friend-status.inStudio {
+  color: var(--warning);
+}

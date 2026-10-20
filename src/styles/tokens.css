@@ -1,0 +1,42 @@
+/*
+ * Design tokens that are not colors. Color tokens (--bg, --surface, --text, ...)
+ * are owned by the active theme and set on <html> by src/theme; see
+ * src/theme/tokens.ts for the full list. Stylesheets must use those variables
+ * instead of literal colors so every theme applies everywhere.
+ */
+:root {
+  --font-sans: Inter, "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "Cascadia Code", "SFMono-Regular", Consolas, monospace;
+  --radius-sm: 3px;
+  --radius: 4px;
+  --radius-md: 5px;
+  --radius-lg: 6px;
+}
+
+/* Expose theme colors to Tailwind utilities (bg-surface, text-muted, ...). */
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface-sunken: var(--surface-sunken);
+  --color-surface: var(--surface);
+  --color-surface-overlay: var(--surface-overlay);
+  --color-surface-hover: var(--surface-hover);
+  --color-surface-raised: var(--surface-raised);
+  --color-surface-selected: var(--surface-selected);
+  --color-control: var(--control);
+  --color-border-subtle: var(--border-subtle);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-border-emphasis: var(--border-emphasis);
+  --color-strong: var(--text-strong);
+  --color-foreground: var(--text);
+  --color-secondary: var(--text-secondary);
+  --color-muted: var(--text-muted);
+  --color-subtle: var(--text-subtle);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
+  --radius-sm: 3px;
+  --radius-md: 5px;
+}

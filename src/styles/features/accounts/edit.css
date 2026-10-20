@@ -1,0 +1,229 @@
+/* Edit account dialog. */
+.edit-account {
+  gap: 18px;
+}
+.account-summary {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 11px 12px;
+  background: var(--surface-sunken);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+.account-summary .avatar {
+  width: 34px;
+  height: 34px;
+  font-size: 0.95rem;
+}
+.account-summary > div {
+  flex: 1;
+  min-width: 0;
+}
+.account-summary strong {
+  display: block;
+  color: var(--text-strong);
+  font-size: 0.95rem;
+  font-weight: 550;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.account-summary small {
+  display: block;
+  margin-top: 3px;
+  color: var(--text-subtle);
+  font-size: 0.76rem;
+}
+.edit-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.edit-group > h4 {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-subtle);
+}
+.edit-group > p {
+  margin-top: -6px;
+  font-size: 0.78rem;
+}
+.edit-account .form-grid {
+  grid-template-columns: 1fr 1fr;
+}
+.edit-account .form-grid input,
+.edit-account .form-grid select {
+  width: 100%;
+}
+.credential-field {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+.credential-field.editing {
+  border-color: var(--border-emphasis);
+}
+.credential-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 42px;
+  padding: 5px 6px 5px 12px;
+}
+.credential-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  font-size: 0.86rem;
+  color: var(--text);
+}
+.credential-label > svg {
+  color: var(--text-muted);
+}
+.credential-state {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.78rem;
+  color: var(--text-subtle);
+}
+.credential-state.stored {
+  color: var(--success);
+}
+.credential-state > span {
+  color: var(--text-muted);
+}
+.credential-editor {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 0 12px 12px;
+}
+.credential-editor textarea {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  line-height: 1.5;
+  word-break: break-all;
+}
+.secret-input {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.secret-input input {
+  flex: 1;
+  min-width: 0;
+}
+.field-hint {
+  color: var(--text-subtle);
+  font-size: 0.75rem;
+}
+
+.color-tags {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin: 12px 0;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+.color-tags > span {
+  margin-right: 4px;
+}
+.color-tag {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  outline: 1px solid var(--border-strong);
+}
+.color-tag.none {
+  background: linear-gradient(
+    135deg,
+    transparent 45%,
+    var(--danger) 45% 55%,
+    transparent 55%
+  );
+}
+.color-tag.active {
+  border-color: var(--surface);
+  outline: 2px solid var(--text-strong);
+}
+.pin-field .checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 32px;
+  color: var(--text);
+}
+.pin-field .checkbox-label input {
+  width: 14px;
+}
+.edit-account textarea.note-input {
+  font-family: var(--font-sans);
+  font-size: 0.86rem;
+}
+.edit-account textarea {
+  width: 100%;
+  resize: vertical;
+}
+.totp-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface-sunken);
+}
+.totp-code {
+  font-family: var(--font-mono);
+  font-size: 1.35rem;
+  letter-spacing: 0.18em;
+  color: var(--text-strong);
+}
+.totp-remaining {
+  flex: 1;
+  font-size: 0.78rem;
+  color: var(--text-subtle);
+}
+
+/* Own fields and the anti-AFK click point. */
+.account-fields {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+.account-field-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) auto;
+  gap: 6px;
+  width: 100%;
+}
+.click-point {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 14px;
+}
+.click-point .field-hint {
+  flex-basis: 100%;
+}
+.click-point-inputs {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.click-point-inputs label {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--text-muted);
+}
+.click-point-inputs input[type="number"] {
+  width: 64px;
+}

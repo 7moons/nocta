@@ -1,0 +1,66 @@
+/* Import from old Nocta. */
+.legacy-import {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px 0;
+}
+.legacy-sources {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.legacy-sources .client-note {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 0;
+}
+.legacy-source {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface-sunken);
+}
+.legacy-source > div {
+  flex: 1;
+  min-width: 0;
+}
+.legacy-source strong {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-strong);
+}
+.legacy-source small {
+  display: block;
+  margin-top: 3px;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+}
+.legacy-source code {
+  display: block;
+  margin-top: 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--text-subtle);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+}
+.legacy-option {
+  padding: 2px 0;
+}
+.legacy-result {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.legacy-source input[type="password"] {
+  display: block;
+  width: min(260px, 100%);
+  margin-top: 8px;
+}

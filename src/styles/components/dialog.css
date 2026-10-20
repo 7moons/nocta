@@ -1,0 +1,64 @@
+/* Modal dialogs from components/ui/dialog.tsx. */
+.dialog-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  background: var(--overlay);
+}
+.dialog-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 41;
+  width: min(570px, calc(100vw - 40px));
+  max-height: 90vh;
+  overflow-y: auto;
+  background: var(--surface-overlay);
+  border: 1px solid var(--border-emphasis);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 20px 80px var(--shadow);
+}
+.dialog-content.dialog-wide {
+  width: min(760px, calc(100vw - 40px));
+}
+.dialog-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 16px 18px;
+  border-bottom: 1px solid var(--border-strong);
+}
+.dialog-heading h2 {
+  font-size: 1.05rem;
+  font-weight: 550;
+}
+.dialog-heading p {
+  margin-top: 5px;
+  max-width: 460px;
+  font-size: 0.84rem;
+}
+.dialog-body {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 17px 18px;
+}
+.dialog-body textarea {
+  font-family: var(--font-mono);
+  font-size: 0.86rem;
+}
+.dialog-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 7px;
+  padding-top: 7px;
+}
+.dialog-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: flex-end;
+}

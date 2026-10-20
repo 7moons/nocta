@@ -1,0 +1,124 @@
+/* Clipboard format manager. */
+.format-manager {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+.settings-format-manager {
+  padding: 12px 0;
+}
+.format-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-height: 340px;
+  overflow-y: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+.format-item {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding-right: 6px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+.format-item:last-child {
+  border-bottom: 0;
+}
+.format-item.active {
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
+}
+.format-pick {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  min-width: 0;
+  padding: 8px 10px;
+  text-align: left;
+}
+.format-check {
+  display: grid;
+  place-items: center;
+  width: 14px;
+  color: var(--accent);
+}
+.format-text {
+  flex: 1;
+  min-width: 0;
+}
+.format-text strong {
+  display: block;
+  font-size: 0.84rem;
+  font-weight: 500;
+}
+.format-text code {
+  display: block;
+  margin-top: 2px;
+  color: var(--text-subtle);
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.format-editor {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.format-editor-fields {
+  grid-template-columns: 1fr 1.6fr;
+}
+.format-editor-fields input {
+  width: 100%;
+}
+.format-template-input {
+  font-family: var(--font-mono);
+}
+.format-template-input[aria-invalid="true"] {
+  border-color: var(--danger);
+}
+.format-keys {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.format-key {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 9px;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+}
+.format-key:hover {
+  border-color: var(--accent);
+  color: var(--text-strong);
+}
+.format-preview {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 9px 11px;
+  border-radius: var(--radius);
+  background: var(--surface-sunken);
+  border: 1px solid var(--border);
+}
+.format-preview > span {
+  color: var(--text-subtle);
+  font-size: 0.74rem;
+}
+.format-preview code {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--text);
+  word-break: break-all;
+}
+.format-preview.invalid code {
+  color: var(--danger);
+}

@@ -1,0 +1,36 @@
+# Dependencies and build output
+node_modules/
+dist/
+target/
+src-tauri/gen/
+release/
+*.tsbuildinfo
+
+# Managed browser and Roblox runtime (staged locally, never committed)
+runtime/
+
+# Archives of modules taken out of the app
+/export/
+
+# Local data, logs and secrets
+*.sqlite*
+*.log
+*.pid
+.env
+.env.*
+*.local
+
+# Test output
+test-results/
+playwright-report/
+coverage/
+
+# Editors, tools and operating systems
+.claude/
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.swp
+.DS_Store
+Thumbs.db
+desktop.ini

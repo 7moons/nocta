@@ -1,0 +1,48 @@
+name: Bug report
+description: Something in Nocta does not work as it should.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Never paste cookies, passwords, two-step codes or backup files here. Security problems go
+        through a private advisory instead (see SECURITY.md).
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you did, what you expected and what happened instead.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Open Settings → Game launch
+        2. ...
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Nocta version
+      description: Shown at the bottom right of the window.
+      placeholder: v1.0.0
+    validations:
+      required: true
+  - type: dropdown
+    id: system
+    attributes:
+      label: System
+      options:
+        - Windows 11
+        - Windows 10
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Log lines
+      description: The relevant lines from the Logs panel, with account names removed if you prefer.
+      render: text

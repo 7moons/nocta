@@ -1,0 +1,37 @@
+/*
+ * Stylesheet entry point. Order matters: tokens and base rules first, then
+ * shared layout and components, then feature-specific styles.
+ *
+ * Colors always come from theme variables (see src/theme/tokens.ts).
+ */
+@import "tailwindcss";
+
+@import "./tokens.css";
+@import "./base.css";
+
+@import "./layout/shell.css";
+@import "./layout/sidebar.css";
+
+@import "./components/button.css";
+@import "./components/form.css";
+@import "./components/dialog.css";
+@import "./components/feedback.css";
+@import "./components/palette.css";
+@import "./components/menu.css";
+
+@import "./features/accounts/table.css";
+@import "./features/accounts/import.css";
+@import "./features/accounts/edit.css";
+@import "./features/accounts/actions.css";
+@import "./features/accounts/clipboard.css";
+@import "./features/accounts/launch.css";
+@import "./features/activity-panel.css";
+@import "./features/dashboard.css";
+@import "./features/friends.css";
+@import "./features/automation.css";
+@import "./features/changelog.css";
+@import "./features/folders.css";
+@import "./features/settings/layout.css";
+@import "./features/settings/theme.css";
+@import "./features/settings/client.css";
+@import "./features/settings/legacy.css";

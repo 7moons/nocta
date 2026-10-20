@@ -1,0 +1,26 @@
+[workspace]
+members = ["crates/nocta-core", "src-tauri"]
+resolver = "2"
+
+[workspace.package]
+version = "1.0.0"
+edition = "2021"
+license = "MIT"
+authors = ["7moons"]
+homepage = "https://7moons.dev"
+repository = "https://github.com/7moons/nocta"
+rust-version = "1.93"
+
+[profile.dev]
+debug = 1
+
+# Key derivation is slow unoptimized (Argon2 with 128 MiB takes seconds); optimize it in dev too.
+[profile.dev.package.argon2]
+opt-level = 3
+[profile.dev.package.blake2]
+opt-level = 3
+
+[profile.release]
+lto = "thin"
+codegen-units = 1
+strip = true

@@ -1,0 +1,211 @@
+/* Labelled fields, search, number and color inputs, switches. */
+.field-label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+.field-label input {
+  width: 100%;
+}
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 160px;
+  gap: 12px;
+}
+.form-error {
+  color: var(--danger);
+  font-size: 0.95rem;
+}
+
+.search-field {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface-sunken);
+  height: 28px;
+  color: var(--text-subtle);
+}
+.search-field input {
+  background: none;
+  border: 0;
+  min-height: 20px !important;
+  width: 170px;
+  padding: 3px 0 !important;
+  font-size: 0.83rem;
+}
+.search-field button {
+  display: flex;
+  color: var(--text-muted);
+  padding: 0;
+}
+.search-field:focus-within {
+  border-color: var(--text-faint);
+}
+.search-field input:focus-visible {
+  outline: none;
+}
+
+.number-field {
+  display: flex;
+  align-items: center;
+  background: var(--surface-sunken);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  min-height: 28px;
+}
+.number-field input {
+  width: 73px !important;
+  text-align: right;
+  border: 0;
+  min-height: 26px !important;
+  padding-right: 6px !important;
+  font-size: 0.82rem;
+  background: none;
+  font-variant-numeric: tabular-nums;
+}
+.number-field > span {
+  padding: 0 7px 0 0;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+
+.color-input {
+  display: flex;
+  gap: 6px;
+}
+.color-input input[type="color"] {
+  width: 34px;
+  height: 30px;
+  padding: 3px;
+}
+.color-input input:not([type="color"]) {
+  width: 120px;
+}
+
+.switch {
+  display: inline-flex;
+  align-items: center;
+  width: 32px;
+  height: 18px;
+  padding: 2px;
+  background: var(--border-strong);
+  border: 1px solid var(--border-strong);
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+.switch[data-state="checked"] {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+.switch-thumb {
+  display: block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--text-muted);
+  transition: transform 0.12s;
+}
+.switch[data-state="checked"] .switch-thumb {
+  transform: translateX(13px);
+  background: var(--accent-foreground);
+}
+
+.checkbox-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.hotkey-input {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.hotkey-input input {
+  width: 170px;
+  cursor: pointer;
+  caret-color: transparent;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+}
+.hotkey-input input:focus {
+  border-color: var(--accent);
+}
+.hotkey-input button {
+  display: flex;
+  padding: 4px;
+  color: var(--text-subtle);
+}
+
+/* Color picker: saturation and brightness in the square, hue on the strip below. */
+.color-picker {
+  display: grid;
+  gap: 10px;
+}
+.color-area {
+  position: relative;
+  height: 170px;
+  border-radius: var(--radius);
+  background-image:
+    linear-gradient(to top, #000, transparent),
+    linear-gradient(to right, #fff, transparent);
+  cursor: crosshair;
+  touch-action: none;
+}
+.color-area:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.color-area-thumb {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px rgb(0 0 0 / 50%);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+.color-hue {
+  width: 100%;
+  height: 14px;
+  border-radius: 7px;
+  appearance: none;
+  background: linear-gradient(
+    to right,
+    #f00,
+    #ff0,
+    #0f0,
+    #0ff,
+    #00f,
+    #f0f,
+    #f00
+  );
+  cursor: pointer;
+}
+.color-hue::-webkit-slider-thumb {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  appearance: none;
+  background: transparent;
+  box-shadow: 0 0 0 1px rgb(0 0 0 / 50%);
+}
+
+.color-dot {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 1px rgb(0 0 0 / 25%);
+}

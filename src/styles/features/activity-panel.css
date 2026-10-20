@@ -1,0 +1,339 @@
+/* Bottom panel with logs, tasks and running instances (src/app/ActivityPanel.tsx). */
+.activity-panel {
+  position: relative;
+  flex-shrink: 0;
+  border-top: 1px solid var(--border-strong);
+  background: var(--surface);
+  font-size: 0.78rem;
+}
+.activity-panel.open {
+  display: flex;
+  flex-direction: column;
+  min-height: 110px;
+}
+
+/* Drag handle on the top edge */
+.activity-resize {
+  position: absolute;
+  top: -4px;
+  left: 0;
+  right: 0;
+  height: 8px;
+  z-index: 2;
+  cursor: ns-resize;
+}
+.activity-resize::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: transparent;
+  transition: background 0.12s;
+}
+.activity-resize:hover::after,
+.activity-resize:active::after {
+  background: var(--accent);
+}
+
+/* Header: tabs on the left, tools of the current tab on the right */
+.activity-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  height: 34px;
+  padding: 0 6px 0 8px;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+.panel-tabs {
+  display: flex;
+  height: 100%;
+  gap: 2px;
+}
+.panel-tabs button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0 10px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+.panel-tabs button:hover {
+  color: var(--text);
+}
+.panel-tabs button.active {
+  color: var(--text-strong);
+}
+.panel-tabs button.active::after {
+  content: "";
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  bottom: -1px;
+  height: 2px;
+  border-radius: 1px;
+  background: var(--accent);
+}
+.panel-tabs button span {
+  min-width: 18px;
+  padding: 0 5px;
+  border-radius: 8px;
+  background: var(--surface-hover);
+  color: var(--text-subtle);
+  font-size: 0.68rem;
+  font-weight: 500;
+  line-height: 16px;
+  text-align: center;
+}
+.panel-tabs button.active span {
+  background: var(--surface-selected);
+  color: var(--text-secondary);
+}
+.activity-tools {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+.activity-tools .button {
+  height: 24px;
+  padding: 0 9px;
+  font-size: 0.74rem;
+}
+.activity-tools .button-icon {
+  width: 24px;
+  height: 24px;
+  padding: 0;
+}
+.activity-tools .search-field {
+  height: 24px;
+}
+.activity-tools .search-field input {
+  width: 160px;
+  font-size: 0.74rem;
+}
+.activity-tools select {
+  height: 24px;
+  min-height: 24px;
+  max-width: 130px;
+  padding-top: 0;
+  padding-bottom: 0;
+  font-size: 0.74rem;
+}
+
+.activity-content {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+}
+.activity-row-scroll {
+  height: 100%;
+  overflow: auto;
+}
+
+/* Logs: aligned columns in a monospaced font */
+.log-columns {
+  display: flex;
+  gap: 18px;
+  padding: 6px 12px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface-sunken);
+  font-size: 0.76rem;
+  color: var(--text-secondary);
+}
+.log-columns label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.log-line {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding: 3px 12px;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  line-height: 1.55;
+  color: var(--text);
+}
+.log-line:hover {
+  background: var(--surface-hover);
+}
+.log-line time {
+  flex-shrink: 0;
+  color: var(--text-subtle);
+}
+.log-level {
+  flex-shrink: 0;
+  width: 58px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  font-size: 0.68rem;
+  letter-spacing: 0.03em;
+}
+.log-module {
+  flex-shrink: 0;
+  width: 72px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--text-muted);
+}
+.log-account {
+  flex-shrink: 0;
+  width: 130px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--text-secondary);
+}
+.log-message {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.log-success .log-level {
+  color: var(--success);
+}
+.log-warning .log-level,
+.log-warn .log-level {
+  color: var(--warning);
+}
+.log-warning .log-message,
+.log-warn .log-message {
+  color: var(--warning);
+}
+.log-error .log-level,
+.log-error .log-message {
+  color: var(--danger);
+}
+.log-debug {
+  color: var(--text-muted);
+}
+
+/* Tasks and instances: one grid for every row so the columns line up */
+.activity-line {
+  display: grid;
+  grid-template-columns:
+    96px minmax(110px, 180px) minmax(90px, 170px) minmax(0, 1fr)
+    auto 26px;
+  align-items: center;
+  gap: 12px;
+  height: 34px;
+  padding: 0 8px 0 12px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+.activity-line:hover {
+  background: var(--surface-hover);
+}
+.activity-line > strong,
+.activity-what,
+.activity-detail {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.activity-line > strong {
+  font-weight: 550;
+  color: var(--text-strong);
+}
+.activity-what {
+  color: var(--text-secondary);
+}
+.activity-detail {
+  color: var(--text-muted);
+}
+.activity-meta {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-subtle);
+  white-space: nowrap;
+}
+.activity-action .button-icon {
+  width: 24px;
+  height: 24px;
+  opacity: 0.6;
+}
+.activity-line:hover .activity-action .button-icon {
+  opacity: 1;
+}
+
+/* Status pills */
+.activity-pill {
+  justify-self: start;
+  max-width: 100%;
+  overflow: hidden;
+  padding: 1px 8px;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  line-height: 16px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.activity-pill.tone-active {
+  border-color: color-mix(in srgb, var(--accent) 40%, transparent);
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
+  color: var(--accent);
+}
+.activity-pill.tone-success {
+  border-color: color-mix(in srgb, var(--success) 35%, transparent);
+  background: color-mix(in srgb, var(--success) 12%, transparent);
+  color: var(--success);
+}
+.activity-pill.tone-warning {
+  border-color: color-mix(in srgb, var(--warning) 35%, transparent);
+  background: color-mix(in srgb, var(--warning) 12%, transparent);
+  color: var(--warning);
+}
+.activity-pill.tone-danger {
+  border-color: color-mix(in srgb, var(--danger) 35%, transparent);
+  background: color-mix(in srgb, var(--danger) 12%, transparent);
+  color: var(--danger);
+}
+.activity-pill.tone-muted {
+  border-color: var(--border-strong);
+  color: var(--text-muted);
+}
+
+/* Instances tab: clients started outside Nocta sit above Nocta's own instances. */
+.instances-view {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.instances-view .activity-row-scroll {
+  flex: 1;
+  min-height: 0;
+  height: auto;
+}
+.external-instances {
+  flex: 0 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+}
+.external-instances + .activity-row-scroll {
+  border-top: 1px solid var(--border);
+}
+.external-instances-heading {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  padding: 7px 12px 5px;
+  border-bottom: 1px solid var(--border-subtle);
+  background: var(--surface);
+  color: var(--text-subtle);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.activity-content > .panel-empty {
+  font-size: 0.78rem;
+}

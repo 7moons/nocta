@@ -1,0 +1,119 @@
+/* Toasts, banners, empty states and status indicators. */
+.toast {
+  position: fixed;
+  bottom: 38px;
+  right: 18px;
+  max-width: 440px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  background: var(--surface-selected);
+  border: 1px solid var(--border-emphasis);
+  border-radius: var(--radius-md);
+  font-size: 0.86rem;
+  box-shadow: 0 5px 30px var(--shadow);
+  z-index: 50;
+}
+.toast > svg {
+  color: var(--success);
+}
+.toast-error {
+  background: var(--danger-surface);
+  border-color: var(--danger-border);
+}
+.toast-error > svg {
+  color: var(--danger);
+}
+.toast button {
+  display: grid;
+  place-items: center;
+  padding: 3px;
+  color: var(--text-muted);
+}
+
+.error-banner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  color: var(--danger);
+  background: var(--danger-surface);
+  border: 1px solid var(--danger-border);
+  border-radius: var(--radius);
+  font-size: 0.85rem;
+}
+.error-banner button {
+  margin-left: auto;
+  text-decoration: underline;
+}
+
+.empty-state {
+  height: 100%;
+  min-height: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  text-align: center;
+}
+.empty-icon {
+  display: grid;
+  place-items: center;
+  height: 42px;
+  width: 42px;
+  border: 1px solid var(--border-strong);
+  background: var(--surface-hover);
+  border-radius: var(--radius-lg);
+  color: var(--text-subtle);
+  margin-bottom: 12px;
+}
+.empty-state h3 {
+  font-size: 1rem;
+}
+.empty-state p {
+  max-width: 370px;
+  margin-top: 6px;
+  font-size: 0.83rem;
+}
+.empty-state .button {
+  margin-top: 12px;
+}
+.panel-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 100%;
+  color: var(--text-subtle);
+  font-size: 0.84rem;
+}
+
+.status-dot {
+  width: 5px;
+  height: 5px;
+  background: var(--text-subtle);
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+.status-dot.ready {
+  background: var(--success);
+}
+
+.notice-card {
+  display: flex;
+  gap: 11px;
+  padding: 12px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  background: var(--surface-sunken);
+}
+.notice-card > svg {
+  margin-top: 1px;
+  color: var(--warning);
+}
+.notice-card p {
+  color: var(--text);
+}

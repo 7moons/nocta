@@ -1,0 +1,258 @@
+/* Add and update accounts dialogs (ImportDialog, ImportForm). */
+.import-form {
+  gap: 12px;
+}
+.import-format {
+  display: flex;
+  gap: 11px;
+  padding: 11px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface-sunken);
+}
+.import-format > svg {
+  margin-top: 2px;
+  color: var(--accent);
+}
+.import-format strong {
+  display: block;
+  font-size: 0.86rem;
+  font-weight: 550;
+  color: var(--text-strong);
+}
+.import-format > div > code {
+  display: inline-block;
+  margin-top: 5px;
+  padding: 2px 7px;
+  border-radius: var(--radius-sm);
+  background: var(--surface-selected);
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+}
+.import-format small {
+  display: block;
+  margin-top: 6px;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+}
+.import-format small code {
+  font-family: var(--font-mono);
+  color: var(--text-secondary);
+}
+.import-options {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+}
+.import-options .field-label {
+  flex: 1;
+}
+.import-options select {
+  width: 100%;
+}
+.import-editor {
+  display: flex;
+  height: clamp(110px, 24vh, 260px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface-sunken);
+  overflow: hidden;
+}
+.import-editor:focus-within {
+  border-color: var(--border-emphasis);
+}
+.import-gutter {
+  flex-shrink: 0;
+  width: 44px;
+  padding: 0.75rem 8px 0.75rem 0;
+  overflow: hidden;
+  border-right: 1px solid var(--border);
+  text-align: right;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: var(--text-faint);
+  user-select: none;
+}
+.import-gutter > span {
+  display: block;
+}
+.import-gutter > span.problem {
+  color: var(--warning);
+  font-weight: 600;
+}
+.import-editor textarea {
+  flex: 1;
+  height: 100%;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  resize: none;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  line-height: 1.6;
+  white-space: pre;
+}
+.import-editor textarea:focus-visible {
+  outline: none;
+}
+.import-check {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+.import-check > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 9px;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  font-size: 0.78rem;
+}
+.import-check .ready {
+  color: var(--success);
+  border-color: var(--success-border);
+  background: var(--success-surface);
+}
+.import-check .warn {
+  color: var(--warning);
+}
+.import-check .bad {
+  color: var(--danger);
+  border-color: var(--danger-border);
+  background: var(--danger-surface);
+}
+.import-problems {
+  max-height: clamp(64px, 14vh, 150px);
+  overflow-y: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.import-problems > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 10px;
+  border-bottom: 1px solid var(--border-subtle);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+.import-problems > div:last-child {
+  border-bottom: 0;
+}
+.import-problems svg {
+  flex-shrink: 0;
+  color: var(--warning);
+}
+.import-line {
+  flex-shrink: 0;
+  min-width: 52px;
+  color: var(--text-secondary);
+  font-variant-numeric: tabular-nums;
+}
+.import-user {
+  min-width: 0;
+  max-width: 180px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--text);
+  font-family: var(--font-mono);
+}
+.import-progress > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 6px;
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+}
+.import-progress-bar {
+  display: block;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--border-strong);
+  overflow: hidden;
+}
+.import-progress-bar > span {
+  display: block;
+  height: 100%;
+  border-radius: 3px;
+  background: var(--accent);
+  transition: width 0.2s ease;
+}
+.import-result-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.import-result-head > svg {
+  color: var(--success);
+}
+.import-result-head strong {
+  display: block;
+  font-size: 0.98rem;
+  color: var(--text-strong);
+}
+.import-result-head small {
+  display: block;
+  margin-top: 3px;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+.import-summary {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+.import-summary > span {
+  padding: 12px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  color: var(--text-muted);
+  font-size: 0.82rem;
+}
+.import-summary strong {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--text-strong);
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.import-summary .added strong,
+.import-summary .updated strong {
+  color: var(--success);
+}
+.import-summary .skipped strong {
+  color: var(--warning);
+}
+
+.browser-sign-in {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 17px 18px 0;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  color: var(--text-muted);
+}
+.browser-sign-in > div {
+  flex: 1;
+  min-width: 0;
+}
+.browser-sign-in strong {
+  display: block;
+  font-size: 0.86rem;
+  color: var(--text-strong);
+}
+.browser-sign-in small {
+  display: block;
+  margin-top: 2px;
+  font-size: 0.76rem;
+  color: var(--text-subtle);
+}

@@ -1,0 +1,123 @@
+/* Automation view: presets, schedules and their dialogs. */
+.automation-list {
+  display: flex;
+  flex-direction: column;
+}
+.automation-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 1px;
+  border-bottom: 1px solid var(--border);
+}
+.automation-row:last-child {
+  border-bottom: 0;
+}
+.automation-main {
+  flex: 1;
+  min-width: 0;
+}
+.automation-main strong {
+  display: block;
+  color: var(--text-strong);
+  font-size: 0.88rem;
+  font-weight: 550;
+}
+.automation-main small {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+  margin-top: 2px;
+  color: var(--text-subtle);
+  font-size: 0.77rem;
+}
+.automation-afk {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  margin-left: 4px;
+}
+.automation-icon {
+  color: var(--text-subtle);
+  flex-shrink: 0;
+}
+.automation-empty {
+  padding: 14px 0;
+  color: var(--text-subtle);
+  font-size: 0.83rem;
+}
+.automation-section-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+.automation-note {
+  margin-top: 8px;
+  font-size: 0.76rem;
+}
+.preset-form fieldset,
+.schedule-form fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+.preset-form legend,
+.schedule-form legend {
+  margin-bottom: 8px;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+.preset-account-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 4px 12px;
+  max-height: 220px;
+  overflow-y: auto;
+  padding: 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface-sunken);
+}
+.preset-account-list .checkbox-label {
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.preset-account-list .checkbox-label small {
+  margin-left: 4px;
+  color: var(--text-subtle);
+}
+.weekday-picker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.weekday-picker button {
+  min-width: 46px;
+  padding: 5px 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  text-transform: capitalize;
+}
+.weekday-picker button.active {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  color: var(--accent);
+}
+.automation-view .automation-list,
+.automation-view .automation-empty,
+.automation-view .automation-note {
+  padding-left: 13px;
+  padding-right: 13px;
+}
+.automation-view .automation-note {
+  padding-bottom: 12px;
+}

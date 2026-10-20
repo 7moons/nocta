@@ -1,0 +1,64 @@
+/* What's new: the releases from CHANGELOG.md. */
+.changelog {
+  max-height: min(70vh, 640px);
+  overflow-y: auto;
+}
+.changelog-release + .changelog-release {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+.changelog-release header {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+.changelog-release h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-strong);
+}
+.changelog-release time,
+.changelog-release > p {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+.changelog-release > p {
+  margin-top: 4px;
+}
+.changelog-release h4 {
+  margin: 14px 0 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+.changelog-release ul {
+  display: grid;
+  gap: 5px;
+  padding-left: 18px;
+  list-style: disc;
+  font-size: 0.86rem;
+  color: var(--text);
+}
+.changelog-release code {
+  padding: 1px 4px;
+  border-radius: 4px;
+  background: var(--surface-raised);
+  font-size: 0.8rem;
+}
+.statusbar-version {
+  padding: 0 2px;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+.statusbar-version:hover {
+  color: var(--text-strong);
+  text-decoration: underline;
+}
+.statusbar-version:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}

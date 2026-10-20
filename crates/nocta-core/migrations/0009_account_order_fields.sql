@@ -1,0 +1,3 @@
+ALTER TABLE accounts ADD COLUMN sort_order INTEGER;
+ALTER TABLE accounts ADD COLUMN fields TEXT NOT NULL DEFAULT '[]';
+ALTER TABLE accounts ADD COLUMN afk_point TEXT;

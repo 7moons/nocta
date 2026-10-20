@@ -1,0 +1,41 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "Nocta",
+  "mainBinaryName": "Nocta",
+  "version": "1.0.0",
+  "identifier": "app.nocta.desktop",
+  "build": {
+    "beforeDevCommand": "bun run dev",
+    "devUrl": "http://127.0.0.1:5173",
+    "beforeBuildCommand": "bun run build",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "label": "main",
+        "title": "Nocta",
+        "width": 1440,
+        "height": 900,
+        "minWidth": 960,
+        "minHeight": 640,
+        "backgroundColor": "#111111",
+        "decorations": true,
+        "visible": false,
+        "dragDropEnabled": false
+      }
+    ],
+    "security": {
+      "csp": "default-src 'self'; img-src 'self' asset: http://asset.localhost https://*.rbxcdn.com data:; style-src 'self' 'unsafe-inline'; connect-src ipc: http://ipc.localhost; script-src 'self'"
+    }
+  },
+  "bundle": {
+    "active": true,
+    "publisher": "7moons",
+    "copyright": "Copyright (c) 2026 7moons",
+    "homepage": "https://7moons.dev",
+    "targets": ["nsis"],
+    "icon": ["icons/icon.png", "icons/icon.ico"],
+    "windows": { "nsis": { "installMode": "currentUser" } }
+  }
+}

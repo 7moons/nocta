@@ -1,0 +1,212 @@
+/* Account actions dialog, opened from the row menu or a right click. */
+.account-actions {
+  gap: 16px;
+}
+.account-facts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin: -6px 0 0;
+}
+.account-facts > div {
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.account-facts dt {
+  color: var(--text-subtle);
+  font-size: 0.72rem;
+}
+.account-facts dd {
+  margin: 3px 0 0;
+  color: var(--text);
+  font-size: 0.82rem;
+}
+.action-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.action-group > h4 {
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-subtle);
+}
+.action-tiles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+.action-tile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  padding: 9px 10px;
+  text-align: left;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface-sunken);
+}
+.action-tile:hover:not(:disabled) {
+  border-color: var(--border-emphasis);
+  background: var(--surface-hover);
+}
+.action-tile-icon {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  border-radius: var(--radius);
+  background: var(--surface-selected);
+  color: var(--text-secondary);
+}
+.action-tile-icon svg {
+  width: 15px;
+  height: 15px;
+}
+.action-tile.primary {
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+}
+.action-tile.primary .action-tile-icon {
+  background: var(--accent);
+  color: var(--accent-foreground);
+}
+.action-tile > span:last-child {
+  min-width: 0;
+}
+.action-tile strong {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 550;
+}
+.action-tile small {
+  display: block;
+  margin-top: 2px;
+  color: var(--text-subtle);
+  font-size: 0.72rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.copy-row {
+  display: flex;
+  gap: 6px;
+}
+.copy-row select {
+  flex: 1;
+  min-width: 0;
+}
+.copy-preview {
+  display: block;
+  padding: 8px 10px;
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius);
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.account-actions-footer {
+  justify-content: space-between;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+.account-actions-footer select {
+  min-height: 2.2rem;
+}
+.account-note-full {
+  margin: 0;
+  padding: 8px 10px;
+  border-left: 2px solid var(--border-strong);
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  white-space: pre-wrap;
+}
+
+/* Changes made on Roblox itself. */
+.roblox-tools {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.roblox-tools-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.roblox-tools-tabs button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 9px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 0.82rem;
+}
+.roblox-tools-tabs button:hover {
+  background: var(--surface-hover);
+}
+.roblox-tools-tabs button.active {
+  border-color: var(--accent);
+  background: var(--surface-selected);
+  color: var(--text-strong);
+}
+.roblox-tool {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  background: var(--surface-sunken);
+}
+.roblox-tool-row {
+  display: flex;
+  gap: 6px;
+}
+.roblox-tool-row input {
+  flex: 1;
+  min-width: 0;
+}
+.quick-login-device {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  color: var(--text-strong);
+}
+.privacy-settings {
+  display: grid;
+  gap: 8px;
+}
+.form-success {
+  color: var(--success);
+  font-size: 0.9rem;
+}
+.account-own-fields dd {
+  overflow-wrap: anywhere;
+}
+.bulk-roblox {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.radio-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+.radio-list input[type="radio"] {
+  accent-color: var(--accent);
+}

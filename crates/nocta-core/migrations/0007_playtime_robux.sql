@@ -1,0 +1,3 @@
+ALTER TABLE accounts ADD COLUMN playtime_secs INTEGER NOT NULL DEFAULT 0;
+ALTER TABLE accounts ADD COLUMN robux INTEGER;
+ALTER TABLE accounts ADD COLUMN robux_checked_at TEXT;
