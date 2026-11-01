@@ -39,4 +39,4 @@ tracing-subscriber = { version = "0.3", features = ["env-filter"] }
 [target.'cfg(windows)'.dependencies]
 # The WebView2 types Tauri's own webview uses, for its memory target while hidden.
 webview2-com = "0.39"
-windows-core = "0.62"
+windows-core = "0.100"
