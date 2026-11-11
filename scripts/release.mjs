@@ -98,9 +98,8 @@ async function checksumFiles(directory) {
     else if (entry.isFile() && /\.(exe|zip)$/.test(entry.name)) {
       const hash = createHash("sha256");
       for await (const chunk of createReadStream(file)) hash.update(chunk);
-      checksums.push(
-        `${hash.digest("hex")}  ${path.relative(output, file).split(path.sep).join("/")}`,
-      );
+      // Bare names: the files are downloaded side by side, so `sha256sum -c` works there.
+      checksums.push(`${hash.digest("hex")}  ${entry.name}`);
     }
   }
 }
