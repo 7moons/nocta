@@ -27,6 +27,18 @@ bun run dev            # only the interface, as a read-only browser preview
 
 [Architecture](docs/architecture.md) explains how the pieces talk to each other.
 
+## Sign-off (DCO)
+
+Every commit needs a sign-off line. It certifies the [Developer Certificate of Origin](https://developercertificate.org): you wrote the change, or you have the right to submit it under the project's license (GPL-3.0). There is no paperwork and no agreement to sign; the rights stay with you.
+
+```bash
+git commit -s -m "your message"     # appends: Signed-off-by: Your Name <you@example.com>
+git commit --amend -s               # add it to the last commit
+git rebase --signoff main           # add it to every commit of a branch
+```
+
+The name and email come from your git config. Pull requests with unsigned commits are asked to add the sign-off before they are merged. Bots such as Dependabot are exempt.
+
 ## Checks
 
 Every pull request runs these on Windows (`.github/workflows/verify.yml`); run them
