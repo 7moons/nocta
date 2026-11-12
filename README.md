@@ -160,6 +160,29 @@ Windows Credential Manager. Nocta connects only to Roblox, and to a Discord webh
 
 ## Getting started
 
+### Install (Windows 10 and 11)
+
+Download from the [latest release](https://github.com/7moons/nocta/releases/latest):
+
+| File | Notes |
+| --- | --- |
+| `Nocta_<version>_x64-setup.exe` | per-user installer, about 160 MB |
+| `Nocta-<version>-windows-x64-portable.zip` | no installer, about 220 MB |
+| `SHA256SUMS.txt` | checksums of the two files above |
+
+- **Why 160 MB.** Nocta carries its own copy of Chrome for session checks and logins, so it never
+  touches your own browser profile.
+- **SmartScreen.** The installer is not code-signed yet, so Windows asks once on first run.
+- **No automatic updates.** Nocta does not update itself yet. Watch the
+  [releases](https://github.com/7moons/nocta/releases) page for new versions.
+- **Verify a download.** Compare it with `SHA256SUMS.txt`, or check its build provenance:
+
+  ```powershell
+  gh attestation verify Nocta_<version>_x64-setup.exe --repo 7moons/nocta
+  ```
+
+Questions and ideas are welcome in [Discussions](https://github.com/7moons/nocta/discussions).
+
 ### Requirements
 
 | Requirement | Version |
